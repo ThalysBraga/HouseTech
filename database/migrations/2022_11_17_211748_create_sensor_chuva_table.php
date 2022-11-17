@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('persianas', function (Blueprint $table) {
+        Schema::create('sensor_chuva', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->string('tipo')->nullable();
-            $table->string('dimensoes')->nullable();
-            $table->string('situacao');
+            $table->boolean('chuva');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persianas');
+        Schema::dropIfExists('sensor_chuva');
     }
 };

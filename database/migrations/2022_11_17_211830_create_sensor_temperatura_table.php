@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('persianas', function (Blueprint $table) {
+        Schema::create('sensor_temperatura_umidade', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
 
-            $table->string('tipo')->nullable();
-            $table->string('dimensoes')->nullable();
-            $table->string('situacao');
+            $table->double('temperatura');
+            $table->double('umidade');
         });
     }
 
@@ -30,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persianas');
+        Schema::dropIfExists('sensor_temperatura');
     }
 };
