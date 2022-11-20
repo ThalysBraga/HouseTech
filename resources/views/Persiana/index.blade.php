@@ -24,7 +24,7 @@
               <td> {{ $persiana->nome }} </td>
               <td class="text-center">
                 <input type="checkbox" name="{{ $persiana->nome }}" id="{{ $persiana->id }}"
-                  onclick="atualizarStatus($(this))">
+                  onclick="atualizarStatus($(this))" @if($persiana->status) checked @endif>
               </td>
             </tr>
           @endforeach
@@ -39,7 +39,7 @@
       $.get('/persiana/atualizar-status/' + id).then(({
         data
       }) => {
-        console.log(ok);
+        $.toast('Atualizado com sucesso');
       });
     }
   </script>

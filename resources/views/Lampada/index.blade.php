@@ -24,8 +24,8 @@
               <td> {{ $lampada->nome }} </td>
               <td class="text-center">
                 <input type="checkbox" name="{{ $lampada->nome }}" id="{{ $lampada->id }}"
-                  onclick="atualizarStatus($(this))">
-              </td>
+                  onclick="atualizarStatus($(this))" @if($lampada->status) checked @endif>
+              </td> 
             </tr>
           @endforeach
         </tbody>
@@ -39,7 +39,7 @@
       $.get('/lampada/atualizar-status/' + id).then(({
         data
       }) => {
-        console.log(ok);
+        $.toast('Atualizado com sucesso');
       });
     }
   </script>
